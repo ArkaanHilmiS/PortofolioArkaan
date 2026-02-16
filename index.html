@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arkaan Hilmi Suharsoyo - Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- LANDING -->
+<div id="landing">
+  <div class="l-bg"><div class="l-grid"></div></div>
+  <div class="l-box">
+    <div class="l-badge"><span class="l-dot"></span>Selamat Datang</div>
+    <h1 class="l-title">Halo! Sebelum masuk,<br/><span>siapakah Anda?</span></h1>
+    <p class="l-sub">Pilih role Anda agar kami bisa menyapa dengan tepat</p>
+    <div class="l-divider"></div>
+    <p class="l-q">Saya mengunjungi portfolio ini sebagai…</p>
+    <div class="role-row">
+      <div class="role-card" onclick="pickRole('HRD Perusahaan',this)"><div class="role-icon">💼</div><div class="role-lbl">HRD Perusahaan</div></div>
+      <div class="role-card" onclick="pickRole('Mahasiswa / Pelajar',this)"><div class="role-icon">🎓</div><div class="role-lbl">Mahasiswa / Pelajar</div></div>
+      <div class="role-card" onclick="pickRole('Calon Klien / Pembeli',this)"><div class="role-icon">🌟</div><div class="role-lbl">Calon Klien / Pembeli</div></div>
+      <div class="role-card" onclick="pickRole('Rekan / Pendatang Umum',this)"><div class="role-icon">🤝</div><div class="role-lbl">Rekan / Pendatang Umum</div></div>
+    </div>
+    <p class="opt-lbl">✦ Nama Anda (opsional — tidak wajib diisi)</p>
+    <div class="name-wrap">
+      <input type="text" id="vname" placeholder="Tulis nama Anda di sini…" maxlength="60"/>
+      <button class="btn-enter" onclick="enter()">
+        Masuk
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" style="display:none">
+  <a href="#home" class="n-logo"><div class="n-dot"></div>Arkaan H.S.</a>
+  <ul class="n-links" id="nlinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#education">Pendidikan</a></li>
+    <li><a href="#experience">Pengalaman</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#training">Pelatihan</a></li>
+    <li><a href="#gallery">Dokumentasi</a></li>
+    <li><a href="#freelance">Freelance</a></li>
+    <li><a href="#msg" class="n-cta">Kirim Pesan</a></li>
+  </ul>
+  <div class="n-ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MAIN -->
+<div id="main-content">
+
+  <!-- HOME / HERO -->
+  <section id="home">
+    <div class="h-blob1"></div><div class="h-blob2"></div>
+    <div class="h-cont">
+      <div class="h-text">
+        <div class="h-badge">👋‹ <span id="hwelcome">Selamat Datang!</span></div>
+        <h1 class="h-name">Arkaan Hilmi<br/><span>Suharsoyo</span></h1>
+        <div class="h-role">&gt; Mahasiswa Sistem Informasi @ ITS Surabaya</div>
+        <p class="h-desc">Seorang mahasiswa tekno-kreatif yang passionate di bidang pengembangan web, analisis data, machine learning, dan visualisasi. Berorientasi pada solusi nyata yang memberi dampak positif.</p>
+        <div class="h-tags">
+          <span class="h-tag">🌐 Web Development</span>
+          <span class="h-tag">📊 Data Analytics</span>
+          <span class="h-tag">🤖 Machine Learning</span>
+          <span class="h-tag">📸 Fotografi & Videografi</span>
+          <span class="h-tag">📈 Power BI</span>
+        </div>
+        <div class="h-contacts">
+          <a href="mailto:arkaanhilmis23@email.com" class="c-chip">📧 arkaan@email.com</a>
+          <a href="#" class="c-chip">💼 LinkedIn</a>
+          <a href="#" class="c-chip">🐙 GitHub</a>
+          <a href="#" class="c-chip">📱 WhatsApp</a>
+        </div>
+        <div class="h-ctas">
+          <a href="#projects" class="btn-p">Lihat Proyek →</a>
+          <a href="#freelance" class="btn-o">Jasa Freelance</a>
+        </div>
+      </div>
+      <div class="h-card">
+        <div class="p-avatar">AH</div>
+        <div class="c-name">Arkaan Hilmi Suharsoyo</div>
+        <div class="c-sub">Sistem Informasi · ITS Surabaya</div>
+        <div class="s-list">
+          <div class="s-item"><div class="s-label"><span class="s-name">Web Development</span><span class="s-pct">85%</span></div><div class="s-bar"><div class="s-fill" data-w="85"></div></div></div>
+          <div class="s-item"><div class="s-label"><span class="s-name">Data Analytics</span><span class="s-pct">80%</span></div><div class="s-bar"><div class="s-fill" data-w="80"></div></div></div>
+          <div class="s-item"><div class="s-label"><span class="s-name">Machine Learning</span><span class="s-pct">72%</span></div><div class="s-bar"><div class="s-fill" data-w="72"></div></div></div>
+          <div class="s-item"><div class="s-label"><span class="s-name">Power BI / Visualisasi</span><span class="s-pct">78%</span></div><div class="s-bar"><div class="s-fill" data-w="78"></div></div></div>
+          <div class="s-item"><div class="s-label"><span class="s-name">Fotografi & Video</span><span class="s-pct">75%</span></div><div class="s-bar"><div class="s-fill" data-w="75"></div></div></div>
+        </div>
+        <div class="h-stats">
+          <div class="stat-b"><div class="stat-n">3.7+</div><div class="stat-l">IPK</div></div>
+          <div class="stat-b"><div class="stat-n">10+</div><div class="stat-l">Proyek</div></div>
+          <div class="stat-b"><div class="stat-n">5+</div><div class="stat-l">Organisasi</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section s-white">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">🎓 Pendidikan</div>
+        <h2 class="sec-title">Latar Belakang Akademik</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Perjalanan akademik yang membentuk fondasi keilmuan dan kompetensi teknis</p>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-logo">ITS</div>
+        <div>
+          <div class="edu-period">2022 — Sekarang</div>
+          <div class="edu-school">Institut Teknologi Sepuluh Nopember</div>
+          <div class="edu-major">Sistem Informasi · Fakultas Teknologi Elektro dan Informatika Cerdas (FTEIC)</div>
+          <div class="edu-meta">
+            <span class="e-badge">📍 Surabaya, Indonesia</span>
+            <span class="e-badge gld">⭐ IPK 3.7+</span>
+            <span class="e-badge">S1 Sarjana</span>
+          </div>
+          <div class="edu-res">
+            <h4>Capaian & Karya Selama Kuliah</h4>
+            <ul>
+              <li>Mengembangkan sistem informasi manajemen sebagai proyek mata kuliah unggulan</li>
+              <li>Aktif mengikuti kompetisi hackathon dan tech fair tingkat regional</li>
+              <li>Membuat analisis data besar untuk proyek riset dosen</li>
+              <li>Menghasilkan dashboard Power BI untuk visualisasi data akademik</li>
+              <li>Membangun aplikasi web full-stack menggunakan Next.js & Express</li>
+            </ul>
+          </div>
+          <div class="edu-docs">
+            <div class="doc-chip">📄 Transkrip Nilai</div>
+            <div class="doc-chip">🏆 Sertifikat Prestasi</div>
+            <div class="doc-chip">📋 KRS Semester</div>
+            <div class="doc-chip">🖼️ Dokumentasi Kampus</div>
+          </div>
+        </div>
+      </div>
+      <div class="edu-card reveal d1">
+        <div class="edu-logo" style="font-size:1rem">SMA</div>
+        <div>
+          <div class="edu-period">2019 — 2022</div>
+          <div class="edu-school">SMA / Sekolah Menengah Atas</div>
+          <div class="edu-major">IPA · [Nama Sekolah — isi sesuai data Arkaan]</div>
+          <div class="edu-meta">
+            <span class="e-badge">📍 [Kota Asal]</span>
+            <span class="e-badge gld">⭐ Nilai Memuaskan</span>
+          </div>
+          <div class="edu-res">
+            <h4>Prestasi & Kegiatan</h4>
+            <ul>
+              <li>Aktif dalam kegiatan OSIS dan kepanitiaan sekolah</li>
+              <li>Mengikuti olimpiade sains dan teknologi tingkat kabupaten/kota</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section s-light">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">💼 Pengalaman</div>
+        <h2 class="sec-title">Organisasi & Kerja</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Rekam jejak kontribusi di organisasi kampus dan pengalaman profesional</p>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal"><span class="exp-type t-org">Organisasi</span><div class="exp-icon i-org">🏢</div><div class="exp-period">2023 — Sekarang</div><div class="exp-title">Anggota / Pengurus Aktif</div><div class="exp-org">Himpunan Mahasiswa Sistem Informasi — ITS</div><p class="exp-desc">Berkontribusi aktif dalam kegiatan kemahasiswaan, kepanitiaan besar, dan pengembangan anggota himpunan.</p></div>
+        <div class="exp-card reveal d1"><span class="exp-type t-work">Kerja</span><div class="exp-icon i-work">💻</div><div class="exp-period">2024 — Sekarang</div><div class="exp-title">Web Developer (Freelance)</div><div class="exp-org">Berbagai Klien</div><p class="exp-desc">Membangun website profesional dan aplikasi web untuk klien dari berbagai industri menggunakan teknologi modern seperti Next.js dan React.</p></div>
+        <div class="exp-card reveal d2"><span class="exp-type t-org">Organisasi</span><div class="exp-icon i-org">📸</div><div class="exp-period">2022 — 2023</div><div class="exp-title">Fotografer & Videografer</div><div class="exp-org">Unit Kegiatan Mahasiswa Fotografi ITS</div><p class="exp-desc">Mendokumentasikan kegiatan kampus, membuat konten visual untuk media sosial, dan mengadakan workshop fotografi.</p></div>
+        <div class="exp-card reveal d3"><span class="exp-type t-work">Kerja</span><div class="exp-icon i-work">📊</div><div class="exp-period">2024</div><div class="exp-title">Data Analyst Intern</div><div class="exp-org">[Nama Perusahaan — isi sesuai data Arkaan]</div><p class="exp-desc">Melakukan analisis data menggunakan Python dan Power BI, membuat dashboard interaktif untuk kebutuhan bisnis perusahaan.</p></div>
+        <div class="exp-card reveal"><span class="exp-type t-org">Organisasi</span><div class="exp-icon i-org">🎓</div><div class="exp-period">2023</div><div class="exp-title">Mentor / Tutor Matematika</div><div class="exp-org">Program Bimbingan Belajar Kampus ITS</div><p class="exp-desc">Mengajar dan membimbing mahasiswa junior dalam mata kuliah matematika dasar, kalkulus, dan statistika.</p></div>
+        <div class="exp-card reveal d1"><span class="exp-type t-org">Organisasi</span><div class="exp-icon i-org">🧠</div><div class="exp-period">2022 — 2023</div><div class="exp-title">Panitia Acara Mahasiswa</div><div class="exp-org">Berbagai Kepanitiaan di ITS</div><p class="exp-desc">Berperan sebagai panitia di berbagai acara besar kampus termasuk PKK, seminar teknologi, dan kompetisi mahasiswa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <!-- PROJECTS -->
+  <section id="projects" class="section s-white">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">🚀 Proyek</div>
+        <h2 class="sec-title">Karya & Proyek</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Berbagai proyek yang pernah dikerjakan, dari web development hingga data science</p>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card reveal"><div class="proj-thumb" style="background:linear-gradient(135deg,#1a2f5e,#2563eb)">🌐</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">Next.js</span><span class="proj-tag">React</span><span class="proj-tag">Tailwind</span></div><div class="proj-name">Sistem Manajemen Informasi</div><p class="proj-desc">Aplikasi web full-stack untuk manajemen data dengan dashboard analitik real-time dan sistem autentikasi yang aman.</p><div class="proj-foot"><a href="#" class="proj-link">🔗 Demo Live</a><a href="#" class="proj-link">📁 GitHub</a></div></div></div>
+        <div class="proj-card reveal d1"><div class="proj-thumb" style="background:linear-gradient(135deg,#0d1b3e,#1e3a6e)">📊</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span></div><div class="proj-name">Dashboard Analitik Power BI</div><p class="proj-desc">Visualisasi data interaktif dengan chart, KPI cards, dan fitur drill-down untuk pengambilan keputusan bisnis.</p><div class="proj-foot"><a href="#" class="proj-link">🔗 Lihat Dashboard</a><a href="#" class="proj-link">📄 Laporan</a></div></div></div>
+        <div class="proj-card reveal d2"><div class="proj-thumb" style="background:linear-gradient(135deg,#1e3a6e,#c9a84c)">🤖</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">TensorFlow</span></div><div class="proj-name">Model Machine Learning</div><p class="proj-desc">Model prediktif menggunakan algoritma klasifikasi dan regresi untuk analisis data real-world dengan akurasi tinggi.</p><div class="proj-foot"><a href="#" class="proj-link">🐍 Notebook</a><a href="#" class="proj-link">📁 GitHub</a></div></div></div>
+        <div class="proj-card reveal"><div class="proj-thumb" style="background:linear-gradient(135deg,#2a4a8a,#0d1b3e)">📱</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Responsive</span></div><div class="proj-name">Website Portfolio Interaktif</div><p class="proj-desc">Website portfolio modern dengan animasi smooth, landing page interaktif, dan fitur download ke PowerPoint.</p><div class="proj-foot"><a href="#" class="proj-link">🔗 Live Site</a><a href="#" class="proj-link">📁 Source</a></div></div></div>
+        <div class="proj-card reveal d1"><div class="proj-thumb" style="background:linear-gradient(135deg,#0d1b3e,#2563eb)">📸</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">Fotografi</span><span class="proj-tag">Videografi</span><span class="proj-tag">Editing</span></div><div class="proj-name">Konten Kreatif Visual</div><p class="proj-desc">Produksi konten foto dan video untuk dokumentasi, promosi acara, dan media sosial institusi pendidikan.</p><div class="proj-foot"><a href="#" class="proj-link">🖼️ Portfolio Visual</a></div></div></div>
+        <div class="proj-card reveal d2"><div class="proj-thumb" style="background:linear-gradient(135deg,#1a2f5e,#c9a84c)">📝</div><div class="proj-body"><div class="proj-tags"><span class="proj-tag">Laporan</span><span class="proj-tag">Analisis</span><span class="proj-tag">Riset</span></div><div class="proj-name">Proyek Riset & Laporan Ilmiah</div><p class="proj-desc">Penyusunan laporan akademik dan ilmiah dengan metodologi terstruktur, analisis mendalam, dan visualisasi data.</p><div class="proj-foot"><a href="#" class="proj-link">📄 Baca Laporan</a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training" class="section s-light">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">🚀 Pelatihan</div>
+        <h2 class="sec-title">Sertifikasi & Pelatihan</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Program pelatihan dan sertifikasi yang memperkuat kompetensi profesional</p>
+      </div>
+      <div class="train-grid">
+        <div class="train-card reveal"><div class="train-icon">🌐</div><div><div class="train-yr">2024</div><div class="train-name">Web Development Bootcamp</div><div class="train-org">Dicoding Indonesia / [Platform]</div></div></div>
+        <div class="train-card reveal d1"><div class="train-icon">📊</div><div><div class="train-yr">2024</div><div class="train-name">Data Analytics Professional Certificate</div><div class="train-org">Google / Coursera</div></div></div>
+        <div class="train-card reveal d2"><div class="train-icon">🤖</div><div><div class="train-yr">2023</div><div class="train-name">Machine Learning Fundamentals</div><div class="train-org">Bangkit Academy / [Platform]</div></div></div>
+        <div class="train-card reveal d3"><div class="train-icon">📈</div><div><div class="train-yr">2023</div><div class="train-name">Power BI Data Visualization</div><div class="train-org">Microsoft Learn</div></div></div>
+        <div class="train-card reveal"><div class="train-icon">🐍</div><div><div class="train-yr">2023</div><div class="train-name">Python for Data Science</div><div class="train-org">IBM / edX</div></div></div>
+        <div class="train-card reveal d1"><div class="train-icon">📸</div><div><div class="train-yr">2022</div><div class="train-name">Fotografi & Videografi Profesional</div><div class="train-org">Workshop Internal UKM ITS</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills-section" class="section s-white">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">⚡ Keahlian</div>
+        <h2 class="sec-title">Skill & Minat ke Depan</h2>
+        <div class="sec-div"></div>
+      </div>
+      <div class="sk-wrap">
+        <div>
+          <div class="sk-cat reveal"><div class="sk-cat-title">💻 Programming & Tech</div><div class="sk-tags"><span class="sk-tag">🐍 Python</span><span class="sk-tag">🌐 JavaScript</span><span class="sk-tag">⚛️ React / Next.js</span><span class="sk-tag">🗄️ SQL</span><span class="sk-tag">📦 Node.js</span><span class="sk-tag">🐘 PHP / Laravel</span><span class="sk-tag">🎨 HTML / CSS</span></div></div>
+          <div class="sk-cat reveal d1"><div class="sk-cat-title">📊 Data & Analytics</div><div class="sk-tags"><span class="sk-tag">📈 Power BI</span><span class="sk-tag">🐼 Pandas</span><span class="sk-tag">📉 Matplotlib</span><span class="sk-tag">🔬 Scikit-learn</span><span class="sk-tag">📋 Excel</span><span class="sk-tag">🧠 TensorFlow</span></div></div>
+          <div class="sk-cat reveal d2"><div class="sk-cat-title">🎨 Creative & Tools</div><div class="sk-tags"><span class="sk-tag">📸 Fotografi</span><span class="sk-tag">🎬 Videografi</span><span class="sk-tag">🎨 Figma / UI</span><span class="sk-tag">🐙 Git / GitHub</span><span class="sk-tag">🐳 Docker</span></div></div>
+        </div>
+        <div>
+          <div class="sec-tag" style="margin-bottom:1rem">🔭 Tertarik ke Depan</div>
+          <div class="int-grid reveal">
+            <div class="int-card"><div class="int-icon">🤖</div><div class="int-name">AI / ML Engineer</div><div class="int-desc">Membangun model cerdas untuk solusi industri</div></div>
+            <div class="int-card"><div class="int-icon">🌐</div><div class="int-name">Full-Stack Dev</div><div class="int-desc">Aplikasi web modern end-to-end</div></div>
+            <div class="int-card"><div class="int-icon">📊</div><div class="int-name">Data Scientist</div><div class="int-desc">Insight mendalam dari data besar</div></div>
+            <div class="int-card"><div class="int-icon">☁️</div><div class="int-name">Cloud & DevOps</div><div class="int-desc">CI/CD, deployment, infrastruktur modern</div></div>
+            <div class="int-card"><div class="int-icon">📸</div><div class="int-name">Creative Director</div><div class="int-desc">Konten visual berkualitas tinggi</div></div>
+            <div class="int-card"><div class="int-icon">🎓</div><div class="int-name">Educator / Mentor</div><div class="int-desc">Berbagi ilmu kepada generasi berikut</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section s-light">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">🖼️ Dokumentasi</div>
+        <h2 class="sec-title">Lampiran & Galeri</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Momen berharga dan dokumentasi perjalanan akademik serta profesional</p>
+      </div>
+      <div class="gal-grid">
+        <div class="gal-item reveal"><div class="gal-icon">🎓</div><div class="gal-lbl">Kegiatan Kampus</div></div>
+        <div class="gal-item reveal d1"><div class="gal-icon">💻</div><div class="gal-lbl">Workshop Coding</div></div>
+        <div class="gal-item reveal d2"><div class="gal-icon">📸</div><div class="gal-lbl">Proyek Fotografi</div></div>
+        <div class="gal-item reveal d3"><div class="gal-icon">🏆</div><div class="gal-lbl">Penghargaan & Sertifikat</div></div>
+        <div class="gal-item reveal"><div class="gal-icon">🤝</div><div class="gal-lbl">Kegiatan Organisasi</div></div>
+        <div class="gal-item reveal d1"><div class="gal-icon">🎬</div><div class="gal-lbl">Proyek Video</div></div>
+        <div class="gal-item reveal d2"><div class="gal-icon">📊</div><div class="gal-lbl">Dashboard & Visualisasi</div></div>
+        <div class="gal-item reveal d3"><div class="gal-icon">🌟</div><div class="gal-lbl">Momen Terbaik</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="msg" class="section s-white">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <div class="sec-tag">✉️ Kontak</div>
+        <h2 class="sec-title">Tinggalkan Pesan</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc">Ada pertanyaan, saran, atau ingin berkolaborasi? Saya senang mendengar dari Anda!</p>
+      </div>
+      <div class="msg-wrap reveal">
+        <div class="f-row">
+          <div class="f-group"><label class="f-lbl">Nama Lengkap</label><input type="text" id="mn" class="f-inp" placeholder="Nama Anda"/></div>
+          <div class="f-group"><label class="f-lbl">Email / WhatsApp</label><input type="text" id="mc" class="f-inp" placeholder="email@contoh.com"/></div>
+        </div>
+        <div class="f-group"><label class="f-lbl">Keperluan</label>
+          <select id="mp" class="f-sel">
+            <option value="">Pilih keperluan…</option>
+            <option>Rekrutmen / Lowongan Kerja</option>
+            <option>Kolaborasi Proyek</option>
+            <option>Jasa Freelance</option>
+            <option>Pertanyaan Umum</option>
+            <option>Saran & Masukan</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="f-group"><label class="f-lbl">Pesan</label><textarea id="mm" class="f-ta" placeholder="Tulis pesan Anda di sini…"></textarea></div>
+        <button class="btn-send" onclick="sendMsg()">📤 Kirim Pesan</button>
+        <div class="ok-msg" id="ok-msg">✅ Terima kasih! Pesan Anda telah diterima. Arkaan akan segera membalas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREELANCE -->
+  <section id="freelance" class="section s-navy">
+    <div class="fl-bg"></div>
+    <div class="container">
+      <div class="fl-hdr reveal">
+        <div class="fl-badge"><span class="avail-dot"></span>Open for Work</div>
+        <h2 class="sec-title sec-title-w">Jasa Freelance & Remote</h2>
+        <div class="sec-div"></div>
+        <p class="sec-desc" style="color:rgba(255,255,255,.52)">Tersedia untuk pekerjaan freelance dan remote dalam berbagai bidang keahlian</p>
+      </div>
+      <div class="fl-grid">
+        <div class="fl-card reveal"><div class="fl-emoji">🌐</div><div class="fl-name">Membangun Website</div><div class="fl-desc">Landing page, company profile, portofolio, toko online profesional</div></div>
+        <div class="fl-card reveal d1"><div class="fl-emoji">📐</div><div class="fl-name">Tutorial Matematika</div><div class="fl-desc">Kalkulus, statistika, aljabar linear, matematika diskrit</div></div>
+        <div class="fl-card reveal d2"><div class="fl-emoji">💻</div><div class="fl-name">Tutorial Pemrograman</div><div class="fl-desc">Python, JavaScript, web dev, database, algoritma pemrograman</div></div>
+        <div class="fl-card reveal d3"><div class="fl-emoji">📝</div><div class="fl-name">Laporan & Tugas</div><div class="fl-desc">Laporan PKL, tugas kuliah, karya ilmiah, makalah akademik</div></div>
+        <div class="fl-card reveal"><div class="fl-emoji">📊</div><div class="fl-name">Power BI Visualisasi</div><div class="fl-desc">Dashboard interaktif, laporan data, KPI tracking bisnis</div></div>
+        <div class="fl-card reveal d1"><div class="fl-emoji">🤖</div><div class="fl-name">Machine Learning</div><div class="fl-desc">Model prediktif, klasifikasi, clustering, NLP, computer vision</div></div>
+        <div class="fl-card reveal d2"><div class="fl-emoji">📸</div><div class="fl-name">Fotografi</div><div class="fl-desc">Event, produk, portrait, foto dokumentasi profesional</div></div>
+        <div class="fl-card reveal d3"><div class="fl-emoji">🎬</div><div class="fl-name">Videografi</div><div class="fl-desc">Company profile, event, konten media sosial kreatif</div></div>
+      </div>
+      <div class="fl-cta reveal">
+        <p style="color:rgba(255,255,255,.5);margin-bottom:1.2rem;font-size:.88rem">Tertarik? Mari diskusi lebih lanjut tentang kebutuhan Anda!</p>
+        <a href="#msg" class="btn-enter" style="text-decoration:none">
+          💬 Hubungi Sekarang
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD PPT -->
+  <section id="ppt-sec">
+    <div class="ppt-wrap reveal">
+      <div class="ppt-icon">📊</div>
+      <div class="ppt-title">Download sebagai Presentasi</div>
+      <p class="ppt-desc">Butuh versi presentasi dari portfolio ini? Download otomatis sebagai file PowerPoint (PPTX) yang siap pakai untuk rekrutmen, seminar, atau keperluan lainnya.</p>
+      <button class="btn-ppt" onclick="dlPPT()">⬇️ Download Portfolio.pptx</button>
+      <div id="ppt-prog">
+        <div class="prog-bar"><div class="prog-fill" id="pfill"></div></div>
+        <div id="ppt-status">Mempersiapkan…</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 <strong>Arkaan Hilmi Suharsoyo</strong> · Sistem Informasi, Institut Teknologi Sepuluh Nopember Surabaya</p>
+    <p style="margin-top:.4rem">Dibuat dengan ❤️ &nbsp;·&nbsp; <a href="#landing">Kembali ke Atas ↑</a></p>
+  </footer>
+
+</div><!-- /main-content -->
+
+<script src="js/script.js"></script>
+</body>
+</html>
