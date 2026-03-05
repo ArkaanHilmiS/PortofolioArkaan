@@ -1,6 +1,6 @@
 /* ====================================================
    ARKAAN HILMI SUHARSOYO - PORTFOLIO MAIN SCRIPT
-   Sistem Informasi · ITS Surabaya
+   Information Systems · ITS Surabaya
    ==================================================== */
 
 // ============================
@@ -9,9 +9,9 @@
 let selRole = '';
 
 /**
- * Fungsi untuk memilih role pengunjung
- * @param {string} r - Role yang dipilih
- * @param {HTMLElement} el - Element yang diklik
+ * Function to select visitor role
+ * @param {string} r - Selected role
+ * @param {HTMLElement} el - Clicked element
  */
 function pickRole(r, el) {
   selRole = r;
@@ -20,29 +20,29 @@ function pickRole(r, el) {
 }
 
 /**
- * Fungsi untuk masuk ke halaman utama
+ * Function to enter the main page
  */
 function enter() {
   const name = document.getElementById('vname').value.trim();
-  const role = selRole || 'Pengunjung';
+  const role = selRole || 'Visitor';
   let w = '';
 
-  // Personalisasi sambutan berdasarkan role dan nama
+  // Personalized greeting based on role and name
   if (name) {
-    w = `Halo, ${name}! Selamat datang 👋`;
-  } else if (role === 'HRD Perusahaan') {
-    w = 'Halo, Bapak/Ibu HRD! Selamat datang 👋';
-  } else if (role === 'Mahasiswa') {
-    w = 'Halo, sesama Mahasiswa! Selamat datang 👋';
-  } else if (role === 'Kolega / Rekan') {
-    w = 'Halo, Rekan! Selamat datang 👋';
-  } else if (role === 'Calon Klien') {
-    w = 'Halo! Terima kasih sudah mampir 👋';
+    w = `Hello, ${name}! Welcome 👋`;
+  } else if (role === 'HR / Recruiter') {
+    w = 'Hello! Welcome, esteemed Recruiter 👋';
+  } else if (role === 'Student') {
+    w = 'Hello, fellow Student! Welcome 👋';
+  } else if (role === 'Colleague') {
+    w = 'Hello, Colleague! Welcome 👋';
+  } else if (role === 'Potential Client') {
+    w = 'Hello! Thank you for visiting 👋';
   } else {
-    w = 'Selamat datang di portfolio Arkaan! 👋';
+    w = "Welcome to Arkaan's Portfolio! 👋";
   }
 
-  // Update welcome message dan transisi ke halaman utama
+  // Update welcome message and transition to main page
   document.getElementById('hwelcome').textContent = w;
   document.getElementById('landing').classList.add('hidden');
 
@@ -55,7 +55,7 @@ function enter() {
   }, 800);
 }
 
-// Event listener untuk Enter key pada input nama
+// Event listener for Enter key on name input
 document.addEventListener('DOMContentLoaded', () => {
   const vnameInput = document.getElementById('vname');
   if (vnameInput) {
@@ -96,7 +96,7 @@ window.addEventListener('scroll', () => {
 // ============================
 
 /**
- * Animasi progress bar untuk skill
+ * Animate skill progress bars
  */
 function animateBars() {
   document.querySelectorAll('.s-fill').forEach(b => {
@@ -109,7 +109,7 @@ function animateBars() {
 // ============================
 
 /**
- * Inisialisasi Intersection Observer untuk scroll reveal effect
+ * Initialize Intersection Observer for scroll reveal effect
  */
 function initReveal() {
   const io = new IntersectionObserver(
@@ -134,18 +134,18 @@ function initReveal() {
 // ============================
 
 /**
- * Fungsi untuk mengirim pesan dari form kontak
+ * Function to send message from contact form
  */
 function sendMsg() {
   const n = document.getElementById('mn').value.trim();
   const m = document.getElementById('mm').value.trim();
 
   if (!n || !m) {
-    alert('Mohon isi nama dan pesan terlebih dahulu.');
+    alert('Please fill in your name and message first.');
     return;
   }
 
-  // Tampilkan pesan sukses
+  // Display success message
   const ok = document.getElementById('ok-msg');
   ok.style.display = 'block';
 
@@ -155,7 +155,7 @@ function sendMsg() {
   document.getElementById('mm').value = '';
   document.getElementById('mp').value = '';
 
-  // Sembunyikan pesan sukses setelah 5 detik
+  // Hide success message after 5 seconds
   setTimeout(() => {
     ok.style.display = 'none';
   }, 5000);
@@ -166,7 +166,7 @@ function sendMsg() {
 // ============================
 
 /**
- * Fungsi untuk mendownload portfolio sebagai PowerPoint
+ * Function to download portfolio as PowerPoint
  */
 async function dlPPT() {
   const btn = document.querySelector('.btn-ppt');
@@ -175,18 +175,18 @@ async function dlPPT() {
   const st = document.getElementById('ppt-status');
 
   btn.disabled = true;
-  btn.innerHTML = '⏳ Memproses…';
+  btn.innerHTML = '⏳ Processing…';
   prog.style.display = 'block';
 
-  // Simulasi progress dengan step-by-step
+  // Simulate progress with step-by-step updates
   const steps = [
-    [10, 'Mengumpulkan data profil…'],
-    [25, 'Membuat slide Pendidikan…'],
-    [45, 'Membuat slide Pengalaman…'],
-    [62, 'Membuat slide Proyek…'],
-    [78, 'Membuat slide Keahlian…'],
-    [92, 'Menyusun slide Freelance & Penutup…'],
-    [100, 'Selesai! Mengunduh…']
+    [10, 'Gathering profile data…'],
+    [25, 'Creating Education slide…'],
+    [45, 'Creating Experience slide…'],
+    [62, 'Creating Projects slide…'],
+    [78, 'Creating Skills slide…'],
+    [92, 'Assembling Freelance & Closing slides…'],
+    [100, 'Complete! Downloading…']
   ];
 
   for (const [p, s] of steps) {
@@ -200,7 +200,7 @@ async function dlPPT() {
 
   // Reset button
   btn.disabled = false;
-  btn.innerHTML = '✅ Berhasil Diunduh!';
+  btn.innerHTML = '✅ Successfully Downloaded!';
   setTimeout(() => {
     btn.innerHTML = '⬇️ Download Portfolio.pptx';
     prog.style.display = 'none';
@@ -209,10 +209,10 @@ async function dlPPT() {
 }
 
 /**
- * Fungsi untuk membuat dan menggenerate file PowerPoint
+ * Function to generate and create the PowerPoint file
  */
 async function makePPT() {
-  // Load PptxGenJS library jika belum ada
+  // Load PptxGenJS library if not loaded yet
   if (!window.PptxGenJS) {
     await new Promise((res, rej) => {
       const s = document.createElement('script');
@@ -236,7 +236,7 @@ async function makePPT() {
     DG = '64748B';
 
   /**
-   * Helper function untuk background gelap
+   * Helper function for dark background
    */
   function darkBg(sl) {
     sl.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: '100%', fill: { color: N } });
@@ -245,7 +245,7 @@ async function makePPT() {
   }
 
   /**
-   * Helper function untuk background terang
+   * Helper function for light background
    */
   function lightBg(sl) {
     sl.addShape(pptx.ShapeType.rect, { x: 0, y: 0, w: '100%', h: '100%', fill: { color: LG } });
@@ -253,7 +253,7 @@ async function makePPT() {
   }
 
   /**
-   * Helper function untuk nomor halaman
+   * Helper function for page numbers
    */
   function pg(sl, n) {
     sl.addText(`${n}`, { x: 9.1, y: 7.1, w: 0.5, h: 0.3, fontSize: 9, color: 'AAAAAA', align: 'right' });
@@ -267,9 +267,9 @@ async function makePPT() {
   s1.addText('AH', { x: 3.7, y: 0.85, w: 1.1, h: 1.1, fontSize: 24, bold: true, color: W, align: 'center', valign: 'middle' });
   s1.addText('ARKAAN HILMI SUHARSOYO', { x: 1, y: 2.05, w: 8, h: 0.5, fontSize: 25, bold: true, color: W, align: 'center', fontFace: 'Georgia' });
   s1.addShape(pptx.ShapeType.rect, { x: 3.5, y: 2.68, w: 3, h: 0.05, fill: { color: G } });
-  s1.addText('Mahasiswa Sistem Informasi', { x: 1, y: 2.85, w: 8, h: 0.35, fontSize: 13, color: 'A0B4D0', align: 'center' });
+  s1.addText('Master\'s Student in Information Systems', { x: 1, y: 2.85, w: 8, h: 0.35, fontSize: 13, color: 'A0B4D0', align: 'center' });
   s1.addText('Institut Teknologi Sepuluh Nopember · Surabaya', { x: 1, y: 3.22, w: 8, h: 0.3, fontSize: 11, color: '7A90A8', align: 'center' });
-  s1.addText('🌐 Web Dev  •  📊 Data Analytics  •  🤖 Machine Learning  •  📸 Fotografi', { x: 1, y: 3.82, w: 8, h: 0.32, fontSize: 10, color: 'A0B4D0', align: 'center' });
+  s1.addText('🌐 Web Dev  •  📊 Data Analytics  •  🤖 Machine Learning  •  📸 Photography', { x: 1, y: 3.82, w: 8, h: 0.32, fontSize: 10, color: 'A0B4D0', align: 'center' });
   s1.addText('P O R T F O L I O', { x: 1, y: 6.95, w: 8, h: 0.28, fontSize: 8, color: G, align: 'center', bold: true, charSpacing: 6 });
 
   // SLIDE 2 – PROFIL
@@ -283,25 +283,25 @@ async function makePPT() {
   s2.addText('Sistem Informasi · ITS', { x: 0.15, y: 3.32, w: 2.9, h: 0.32, fontSize: 9, color: 'A0B4D0', align: 'center' });
 
   [
-    ['📧', 'arkaan@email.com'],
+    ['📧', 'arkaanhilmis23@gmail.com'],
     ['💼', 'LinkedIn'],
     ['🐙', 'GitHub'],
-    ['📱', 'WhatsApp']
+    ['📱', 'Instagram']
   ].forEach(([ic, lb], i) => {
     s2.addText(`${ic} ${lb}`, { x: 0.15, y: 4.2 + i * 0.4, w: 2.9, h: 0.32, fontSize: 9, color: 'A0B4D0', align: 'center' });
   });
 
-  s2.addText('PROFIL', { x: 3.5, y: 0.3, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: N, charSpacing: 4 });
+  s2.addText('PROFILE', { x: 3.5, y: 0.3, w: 5.8, h: 0.35, fontSize: 11, bold: true, color: N, charSpacing: 4 });
   s2.addShape(pptx.ShapeType.rect, { x: 3.5, y: 0.7, w: 1, h: 0.05, fill: { color: G } });
   s2.addText(
-    'Mahasiswa tekno-kreatif dari ITS Surabaya yang passionate di bidang web development, analisis data, machine learning, dan visualisasi. Berorientasi pada solusi nyata yang berdampak.',
+    'A dynamic and results-driven professional from ITS Surabaya with expertise in business consulting, ERP systems, machine learning, and data visualization. Focused on delivering impactful solutions.',
     { x: 3.5, y: 0.9, w: 5.8, h: 0.95, fontSize: 10, color: DG, wrap: true }
   );
 
   [
-    ['IPK', '3.7+'],
-    ['Proyek', '10+'],
-    ['Org', '5+']
+    ['GPA', '3.66'],
+    ['Team Led', '156'],
+    ['KPI', '96%']
   ].forEach(([lb, vl], i) => {
     const xp = 3.5 + i * 2;
     s2.addShape(pptx.ShapeType.rect, { x: xp, y: 2.1, w: 1.8, h: 0.88, fill: { color: 'E8ECF4' }, line: { color: 'D0D8EC', width: 0.5 } });
@@ -309,7 +309,7 @@ async function makePPT() {
     s2.addText(lb, { x: xp, y: 2.62, w: 1.8, h: 0.25, fontSize: 8, color: DG, align: 'center' });
   });
 
-  s2.addText('MINAT KE DEPAN', { x: 3.5, y: 3.2, w: 5.8, h: 0.28, fontSize: 9, bold: true, color: N, charSpacing: 2 });
+  s2.addText('FUTURE INTERESTS', { x: 3.5, y: 3.2, w: 5.8, h: 0.28, fontSize: 9, bold: true, color: N, charSpacing: 2 });
   ['🤖 AI / ML Engineer', '🌐 Full-Stack Dev', '📊 Data Scientist', '☁️ Cloud & DevOps', '📸 Creative Director', '🎓 Educator / Mentor'].forEach((it, i) => {
     const col = i % 3,
       row = Math.floor(i / 3);
@@ -317,16 +317,16 @@ async function makePPT() {
     s2.addText(it, { x: 3.5 + col * 1.95, y: 3.6 + row * 0.55, w: 1.82, h: 0.42, fontSize: 8, color: N, align: 'center', valign: 'middle', wrap: true });
   });
 
-  // SLIDE 3 – PENDIDIKAN
+  // SLIDE 3 – EDUCATION
   const s3 = pptx.addSlide();
   lightBg(s3);
   pg(s3, 3);
-  s3.addText('PENDIDIKAN', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
+  s3.addText('EDUCATION', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
   s3.addShape(pptx.ShapeType.rect, { x: 0.5, y: 0.62, w: 1, h: 0.05, fill: { color: G } });
 
   [
-    { logo: 'ITS', period: '2022 — Sekarang', school: 'Institut Teknologi Sepuluh Nopember', major: 'Sistem Informasi · FTEIC', ipk: 'IPK 3.7+', y: 0.9 },
-    { logo: 'SMA', period: '2019 — 2022', school: 'SMA [Nama Sekolah]', major: 'IPA · [Kota Asal]', ipk: 'Nilai Memuaskan', y: 4.0 }
+    { logo: 'ITS', period: '2022 — 2026', school: 'Institut Teknologi Sepuluh Nopember', major: 'Information Systems · FTEIC', ipk: 'GPA 3.66', y: 0.9 },
+    { logo: 'ITS', period: '2026 — Present', school: 'Institut Teknologi Sepuluh Nopember', major: 'Information Systems · FTEIC (Master)', ipk: 'GPA 3.75', y: 4.0 }
   ].forEach(ed => {
     s3.addShape(pptx.ShapeType.rect, { x: 0.4, y: ed.y, w: 9.2, h: 2.8, fill: { color: W }, line: { color: 'D0D8EC', width: 0.5 } });
     s3.addShape(pptx.ShapeType.rect, { x: 0.4, y: ed.y, w: 0.08, h: 2.8, fill: { color: A } });
@@ -337,7 +337,7 @@ async function makePPT() {
     s3.addText(ed.major, { x: 1.75, y: ed.y + 0.88, w: 7, h: 0.28, fontSize: 10, color: DG });
     s3.addShape(pptx.ShapeType.rect, { x: 1.75, y: ed.y + 1.22, w: 1.1, h: 0.28, fill: { color: 'FDF5DC' }, line: { color: 'E0D0A0', width: 0.5 } });
     s3.addText(ed.ipk, { x: 1.75, y: ed.y + 1.22, w: 1.1, h: 0.28, fontSize: 9, color: '906020', align: 'center', valign: 'middle', bold: true });
-    s3.addText('Capaian: Sistem informasi manajemen, analitik data, dashboard Power BI, aplikasi web full-stack menggunakan Next.js & Express.', {
+    s3.addText('Achievements: Information management systems, data analytics, Power BI dashboards, full-stack web applications using Next.js & Express.', {
       x: 1.75,
       y: ed.y + 1.65,
       w: 7.2,
@@ -348,20 +348,20 @@ async function makePPT() {
     });
   });
 
-  // SLIDE 4 – PENGALAMAN
+  // SLIDE 4 – EXPERIENCE
   const s4 = pptx.addSlide();
   lightBg(s4);
   pg(s4, 4);
-  s4.addText('PENGALAMAN', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
+  s4.addText('EXPERIENCE', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
   s4.addShape(pptx.ShapeType.rect, { x: 0.5, y: 0.62, w: 1, h: 0.05, fill: { color: G } });
 
   [
-    { icon: '🏛️', type: 'ORG', period: '2023—Kini', title: 'Pengurus HMSI', org: 'Himpunan Mahasiswa SI ITS', desc: 'Kegiatan kemahasiswaan & kepanitiaan' },
-    { icon: '💻', type: 'WORK', period: '2024—Kini', title: 'Web Developer', org: 'Freelance', desc: 'Membangun web & aplikasi modern' },
-    { icon: '📸', type: 'ORG', period: '2022—2023', title: 'Fotografer & Videografer', org: 'UKM Fotografi ITS', desc: 'Konten visual & dokumentasi kampus' },
-    { icon: '📊', type: 'WORK', period: '2024', title: 'Data Analyst Intern', org: '[Perusahaan]', desc: 'Python, Power BI, dashboard analitik' },
-    { icon: '📐', type: 'ORG', period: '2023', title: 'Mentor Matematika', org: 'Program Bimbel ITS', desc: 'Mengajar mahasiswa junior' },
-    { icon: '🤝', type: 'ORG', period: '2022—2023', title: 'Panitia Acara', org: 'Berbagai Kepanitiaan ITS', desc: 'PKK, seminar, kompetisi mahasiswa' }
+    { icon: '🏛️', type: 'ORG', period: '2023—Now', title: 'Board Member HMSI', org: 'IS Student Association ITS', desc: 'Student affairs & event committees' },
+    { icon: '💻', type: 'WORK', period: '2024—Now', title: 'Web Developer', org: 'Freelance', desc: 'Building modern web apps & sites' },
+    { icon: '📸', type: 'ORG', period: '2022—2023', title: 'Photographer & Videographer', org: 'ITS Photography Club', desc: 'Visual content & campus documentation' },
+    { icon: '📊', type: 'WORK', period: '2024', title: 'Data Analyst Intern', org: '[Company]', desc: 'Python, Power BI, analytics dashboards' },
+    { icon: '📐', type: 'ORG', period: '2023', title: 'Mathematics Mentor', org: 'ITS Tutoring Program', desc: 'Mentoring junior students' },
+    { icon: '🤝', type: 'ORG', period: '2022—2023', title: 'Event Committee', org: 'Various ITS Committees', desc: 'Orientation, seminars, competitions' }
   ].forEach((ex, i) => {
     const col = i % 3,
       row = Math.floor(i / 3),
@@ -371,7 +371,7 @@ async function makePPT() {
     const bc = ex.type === 'ORG' ? 'FDF8E1' : 'EFF6FF',
       btc = ex.type === 'ORG' ? '906020' : A;
     s4.addShape(pptx.ShapeType.rect, { x: xp + 1.6, y: yp + 0.12, w: 1.15, h: 0.25, fill: { color: bc }, line: { color: 'E0D0B0', width: 0.3 } });
-    s4.addText(ex.type === 'ORG' ? 'ORGANISASI' : 'KERJA', {
+    s4.addText(ex.type === 'ORG' ? 'ORGANIZATION' : 'WORK', {
       x: xp + 1.6,
       y: yp + 0.12,
       w: 1.15,
@@ -390,20 +390,20 @@ async function makePPT() {
     s4.addText(ex.desc, { x: xp + 0.1, y: yp + 1.58, w: 2.7, h: 0.5, fontSize: 8.5, color: DG, wrap: true });
   });
 
-  // SLIDE 5 – PROYEK
+  // SLIDE 5 – PROJECTS
   const s5 = pptx.addSlide();
   lightBg(s5);
   pg(s5, 5);
-  s5.addText('PROYEK & KARYA', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
+  s5.addText('PROJECTS & WORKS', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: N, charSpacing: 4 });
   s5.addShape(pptx.ShapeType.rect, { x: 0.5, y: 0.62, w: 1, h: 0.05, fill: { color: G } });
 
   [
-    { icon: '🌐', name: 'Sistem Manajemen Informasi', tech: 'Next.js · React · TailwindCSS', desc: 'Aplikasi web full-stack dengan dashboard analitik real-time' },
-    { icon: '📊', name: 'Dashboard Power BI', tech: 'Power BI · Python · Pandas', desc: 'Visualisasi data interaktif untuk keputusan bisnis' },
-    { icon: '🤖', name: 'Model Machine Learning', tech: 'Python · Scikit-learn · TensorFlow', desc: 'Model prediktif klasifikasi & regresi data real-world' },
-    { icon: '📱', name: 'Portfolio Website', tech: 'HTML · CSS · JavaScript', desc: 'Website portfolio responsif dengan animasi & download PPT' },
-    { icon: '📸', name: 'Konten Kreatif Visual', tech: 'Fotografi · Videografi · Editing', desc: 'Produksi konten foto & video profesional' },
-    { icon: '📝', name: 'Laporan & Riset Ilmiah', tech: 'Analisis · Riset · Visualisasi', desc: 'Laporan akademik dengan metodologi terstruktur' }
+    { icon: '🌐', name: 'Information Management System', tech: 'Next.js · React · TailwindCSS', desc: 'Full-stack web app with real-time analytics dashboard' },
+    { icon: '📊', name: 'Power BI Dashboard', tech: 'Power BI · Python · Pandas', desc: 'Interactive data visualization for business decisions' },
+    { icon: '🤖', name: 'Machine Learning Model', tech: 'Python · Scikit-learn · TensorFlow', desc: 'Predictive classification & regression on real-world data' },
+    { icon: '📱', name: 'Portfolio Website', tech: 'HTML · CSS · JavaScript', desc: 'Responsive portfolio with animations & PPT export' },
+    { icon: '📸', name: 'Creative Visual Content', tech: 'Photography · Videography · Editing', desc: 'Professional photo & video content production' },
+    { icon: '📝', name: 'Research & Scientific Reports', tech: 'Analysis · Research · Visualization', desc: 'Academic reports with structured methodology' }
   ].forEach((pr, i) => {
     const col = i % 3,
       row = Math.floor(i / 3),
@@ -417,20 +417,20 @@ async function makePPT() {
     s5.addText(pr.desc, { x: xp + 0.12, y: yp + 1.9, w: 2.65, h: 0.5, fontSize: 8, color: 'A0B4D0', wrap: true });
   });
 
-  // SLIDE 6 – KEAHLIAN
+  // SLIDE 6 – SKILLS
   const s6 = pptx.addSlide();
   darkBg(s6);
   pg(s6, 6);
-  s6.addText('KEAHLIAN & PELATIHAN', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: W, charSpacing: 4 });
+  s6.addText('SKILLS & CERTIFICATIONS', { x: 0.5, y: 0.2, w: 9, h: 0.38, fontSize: 11, bold: true, color: W, charSpacing: 4 });
   s6.addShape(pptx.ShapeType.rect, { x: 0.5, y: 0.62, w: 1, h: 0.05, fill: { color: G } });
 
   [
-    { name: 'Web Development', pct: 85 },
-    { name: 'Data Analytics', pct: 80 },
-    { name: 'Machine Learning', pct: 72 },
-    { name: 'Power BI / Visualisasi', pct: 78 },
-    { name: 'Fotografi & Video', pct: 75 },
-    { name: 'Matematika & Statistik', pct: 82 }
+    { name: 'Leadership & Team Building', pct: 98 },
+    { name: 'Information Systems Analysis', pct: 95 },
+    { name: 'Business Intelligence', pct: 85 },
+    { name: 'Power BI / Data Visualization', pct: 85 },
+    { name: 'Machine Learning', pct: 78 },
+    { name: 'Web Development', pct: 78 }
   ].forEach((sk, i) => {
     const yp = 0.95 + i * 0.72;
     s6.addText(sk.name, { x: 0.5, y: yp, w: 3.5, h: 0.28, fontSize: 9.5, color: W, bold: true });
@@ -439,14 +439,14 @@ async function makePPT() {
     s6.addShape(pptx.ShapeType.rect, { x: 0.5, y: yp + 0.3, w: (4.5 * sk.pct) / 100, h: 0.18, fill: { color: A } });
   });
 
-  s6.addText('PELATIHAN & SERTIFIKASI', { x: 5.3, y: 0.75, w: 4.3, h: 0.28, fontSize: 9, bold: true, color: G, charSpacing: 2 });
+  s6.addText('TRAINING & CERTIFICATIONS', { x: 5.3, y: 0.75, w: 4.3, h: 0.28, fontSize: 9, bold: true, color: G, charSpacing: 2 });
   [
     '🌐 Web Development Bootcamp',
     '📊 Data Analytics Professional (Google)',
     '🤖 Machine Learning Fundamentals',
     '📈 Power BI Data Visualization',
     '🐍 Python for Data Science',
-    '📸 Fotografi & Videografi Profesional'
+    '📸 Professional Photography & Videography'
   ].forEach((tr, i) => {
     const yp = 1.1 + i * 0.54;
     s6.addShape(pptx.ShapeType.rect, { x: 5.3, y: yp, w: 4.2, h: 0.42, fill: { color: '122050' }, line: { color: '1E3060', width: 0.5 } });
@@ -459,18 +459,18 @@ async function makePPT() {
   pg(s7, 7);
   s7.addShape(pptx.ShapeType.rect, { x: 3.2, y: 0.12, w: 1.6, h: 0.3, fill: { color: '0A4020' }, line: { color: '2A6040', width: 0.5 } });
   s7.addText('● OPEN FOR WORK', { x: 3.2, y: 0.12, w: 1.6, h: 0.3, fontSize: 7.5, color: '4ADE80', bold: true, align: 'center', valign: 'middle', charSpacing: 1 });
-  s7.addText('JASA FREELANCE & REMOTE', { x: 0.5, y: 0.58, w: 9, h: 0.4, fontSize: 14, bold: true, color: W, align: 'center', fontFace: 'Georgia' });
-  s7.addText('Tersedia untuk pekerjaan freelance dan remote dalam berbagai bidang keahlian', { x: 0.5, y: 1.0, w: 9, h: 0.28, fontSize: 9.5, color: 'A0B4D0', align: 'center' });
+  s7.addText('FREELANCE & REMOTE SERVICES', { x: 0.5, y: 0.58, w: 9, h: 0.4, fontSize: 14, bold: true, color: W, align: 'center', fontFace: 'Georgia' });
+  s7.addText('Available for freelance and remote work across various fields of expertise', { x: 0.5, y: 1.0, w: 9, h: 0.28, fontSize: 9.5, color: 'A0B4D0', align: 'center' });
 
   [
     { icon: '🌐', name: 'Website Development' },
-    { icon: '📐', name: 'Tutorial Matematika' },
-    { icon: '💻', name: 'Tutorial Pemrograman' },
-    { icon: '📝', name: 'Laporan & Tugas' },
-    { icon: '📊', name: 'Power BI Visualisasi' },
+    { icon: '📐', name: 'Mathematics Tutoring' },
+    { icon: '💻', name: 'Programming Tutoring' },
+    { icon: '📝', name: 'Reports & Assignments' },
+    { icon: '📊', name: 'Power BI Visualization' },
     { icon: '🤖', name: 'Machine Learning' },
-    { icon: '📸', name: 'Fotografi' },
-    { icon: '🎬', name: 'Videografi' }
+    { icon: '📸', name: 'Photography' },
+    { icon: '🎬', name: 'Videography' }
   ].forEach((fl, i) => {
     const col = i % 4,
       row = Math.floor(i / 4),
@@ -481,14 +481,14 @@ async function makePPT() {
     s7.addText(fl.name, { x: xp + 0.1, y: yp + 1.02, w: 1.95, h: 0.62, fontSize: 9, bold: true, color: W, align: 'center', valign: 'middle', wrap: true });
   });
 
-  s7.addText('📧 arkaan@email.com  •  📱 WhatsApp  •  💼 LinkedIn  •  🐙 GitHub', { x: 0.5, y: 6.9, w: 9, h: 0.28, fontSize: 9, color: G, align: 'center' });
+  s7.addText('📧 arkaanhilmis23@gmail.com  •  📱 Instagram  •  💼 LinkedIn  •  🐙 GitHub', { x: 0.5, y: 6.9, w: 9, h: 0.28, fontSize: 9, color: G, align: 'center' });
 
   // SLIDE 8 – PENUTUP
   const s8 = pptx.addSlide();
   darkBg(s8);
   s8.addShape(pptx.ShapeType.rect, { x: 0.5, y: 1.5, w: 9, h: 4.5, fill: { color: '0E2248' }, line: { color: '1A3060', width: 0.5 } });
   s8.addText('"', { x: 0.7, y: 1.55, w: 1, h: 1, fontSize: 80, color: '1E4080', fontFace: 'Georgia', bold: true });
-  s8.addText('Saya percaya bahwa teknologi, kreativitas, dan data dapat bersinergi untuk menciptakan solusi yang bermakna bagi masyarakat.', {
+  s8.addText('I believe that technology, creativity, and data can work in synergy to create meaningful solutions for society.', {
     x: 1.2,
     y: 2.35,
     w: 7.8,
@@ -503,10 +503,10 @@ async function makePPT() {
   });
   s8.addShape(pptx.ShapeType.rect, { x: 3.8, y: 3.8, w: 2.4, h: 0.05, fill: { color: G } });
   s8.addText('Arkaan Hilmi Suharsoyo', { x: 1, y: 3.95, w: 8, h: 0.35, fontSize: 12, color: G, align: 'center', bold: true });
-  s8.addText('Sistem Informasi · Institut Teknologi Sepuluh Nopember Surabaya', { x: 1, y: 4.35, w: 8, h: 0.28, fontSize: 9.5, color: 'A0B4D0', align: 'center' });
-  s8.addText('Terima Kasih telah mengunjungi Portfolio ini', { x: 1, y: 5.2, w: 8, h: 0.32, fontSize: 11, color: 'A0B4D0', align: 'center' });
-  s8.addText('📧 arkaan@email.com  •  📱 WhatsApp  •  💼 LinkedIn  •  🐙 GitHub', { x: 1, y: 5.65, w: 8, h: 0.28, fontSize: 9, color: '708090', align: 'center' });
+  s8.addText('Information Systems · Institut Teknologi Sepuluh Nopember Surabaya', { x: 1, y: 4.35, w: 8, h: 0.28, fontSize: 9.5, color: 'A0B4D0', align: 'center' });
+  s8.addText('Thank you for visiting this Portfolio', { x: 1, y: 5.2, w: 8, h: 0.32, fontSize: 11, color: 'A0B4D0', align: 'center' });
+  s8.addText('📧 arkaanhilmis23@gmail.com  •  📱 Instagram  •  💼 LinkedIn  •  🐙 GitHub', { x: 1, y: 5.65, w: 8, h: 0.28, fontSize: 9, color: '708090', align: 'center' });
 
-  // Generate dan download file
+  // Generate and download file
   pptx.writeFile({ fileName: 'Portfolio_Arkaan_Hilmi_Suharsoyo.pptx' });
 }
