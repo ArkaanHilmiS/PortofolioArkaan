@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arkaan Hilmi Suharsoyo — Portfolio</title>
+  <meta name="description" content="Master's Student in Information Systems ITS | Business Consultant | ERP Specialist | Leadership & Team Building Expert"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#0d1b3e;--navy-mid:#1a2f5e;--navy-light:#2a4a8a;--accent:#2563eb;--accent-light:#3b82f6;--gold:#c9a84c;--gold-light:#e8c97a;--white:#ffffff;--off-white:#f8f9fc;--gray-light:#e8ecf4;--gray:#94a3b8;--gray-dark:#475569;--text:#1e293b;--text-light:#64748b;--shadow:0 4px 16px rgba(13,27,62,0.10);--shadow-lg:0 20px 48px rgba(13,27,62,0.14);--radius:12px;--radius-lg:20px;--transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--off-white);line-height:1.6;overflow-x:hidden}
+    ::selection{background:var(--accent);color:white}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--off-white)}
+    ::-webkit-scrollbar-thumb{background:var(--navy-light);border-radius:3px}
+    #landing{position:fixed;inset:0;z-index:900;background:var(--navy);display:flex;align-items:center;justify-content:center;transition:opacity .8s ease,transform .8s ease}
+    #landing.hidden{opacity:0;transform:scale(1.06) translateY(-30px);pointer-events:none}
+    .l-bg{position:absolute;inset:0;overflow:hidden}
+    .l-bg::before{content:'';position:absolute;top:-40%;left:-20%;width:80%;height:80%;background:radial-gradient(ellipse,rgba(37,99,235,0.18) 0%,transparent 70%);animation:floatB 8s ease-in-out infinite}
+    .l-bg::after{content:'';position:absolute;bottom:-30%;right:-10%;width:60%;height:60%;background:radial-gradient(ellipse,rgba(201,168,76,0.12) 0%,transparent 70%);animation:floatB 10s ease-in-out infinite reverse}
+    @keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(2%,3%)}}
+    .l-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+    .l-box{position:relative;z-index:2;text-align:center;max-width:660px;padding:2rem;animation:fadeUp .8s ease}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .l-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.18);border:1px solid rgba(37,99,235,0.3);color:var(--accent-light);font-size:.78rem;font-weight:600;padding:.35rem 1rem;border-radius:99px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem}
+    .l-dot{width:6px;height:6px;background:var(--accent-light);border-radius:50%}
+    .l-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:900;color:white;line-height:1.12;margin-bottom:.5rem}
+    .l-title span{color:var(--gold)}
+    .l-sub{color:rgba(255,255,255,0.5);font-size:.95rem;margin-bottom:2.5rem}
+    .l-divider{width:48px;height:2px;background:var(--gold);margin:0 auto 2.5rem;border-radius:2px}
+    .l-q{color:rgba(255,255,255,0.8);font-size:.95rem;font-weight:500;margin-bottom:1.25rem}
+    .role-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .role-card{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:1rem 1.4rem;cursor:pointer;transition:var(--transition);min-width:130px}
+    .role-card:hover,.role-card.sel{background:rgba(37,99,235,0.2);border-color:var(--accent-light);transform:translateY(-3px)}
+    .role-card.sel{border-color:var(--gold);background:rgba(201,168,76,0.12)}
+    .role-icon{font-size:1.8rem;margin-bottom:.4rem}
+    .role-lbl{color:white;font-size:.86rem;font-weight:500}
+    .name-wrap{display:flex;gap:.75rem;max-width:380px;margin:0 auto 2rem;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.14);border-radius:var(--radius);padding:.5rem .5rem .5rem 1rem;transition:var(--transition)}
+    .name-wrap:focus-within{border-color:var(--accent-light);background:rgba(37,99,235,0.1)}
+    .name-wrap input{flex:1;background:transparent;border:none;outline:none;color:white;font-size:.95rem;font-family:'DM Sans',sans-serif}
+    .name-wrap input::placeholder{color:rgba(255,255,255,0.35)}
+    .opt-lbl{font-size:.74rem;color:rgba(255,255,255,0.33);margin-bottom:.4rem}
+    .btn-enter{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;padding:.75rem 1.8rem;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);letter-spacing:.01em}
+    .btn-enter:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.35)}
+    .btn-enter svg{transition:transform .3s ease}
+    .btn-enter:hover svg{transform:translateX(4px)}
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,62,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);padding:0 2rem;display:none;align-items:center;justify-content:space-between;height:64px;transition:var(--transition)}
+    .n-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:white;text-decoration:none;display:flex;align-items:center;gap:10px}
+    .n-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+    .n-links{display:flex;align-items:center;gap:.25rem;list-style:none}
+    .n-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:.84rem;font-weight:500;letter-spacing:.01em;padding:.4rem .8rem;border-radius:6px;transition:var(--transition);white-space:nowrap}
+    .n-links a:hover,.n-links a.active{color:white;background:rgba(255,255,255,0.1)}
+    .n-cta{background:var(--gold)!important;color:var(--navy)!important;font-weight:600!important;padding:.4rem 1rem!important;border-radius:6px}
+    .n-cta:hover{background:var(--gold-light)!important}
+    .n-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .n-ham span{display:block;width:24px;height:2px;background:white;border-radius:2px;transition:var(--transition)}
+    #main-content{padding-top:64px;opacity:0;transition:opacity .6s ease .3s}
+    #main-content.vis{opacity:1}
+    #home{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1e3a6e 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+    .h-blob1{position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 70%);border-radius:50%}
+    .h-blob2{position:absolute;bottom:-150px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);border-radius:50%}
+    .h-cont{max-width:1200px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;width:100%}
+    .h-text{animation:fadeLeft .9s ease}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+    .h-greet{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold-light);font-size:.82rem;padding:.3rem .9rem;border-radius:99px;font-weight:500;margin-bottom:1.25rem;letter-spacing:.05em;text-transform:uppercase}
+    #hwelcome{color:white;font-weight:700}
+    .h-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:white;line-height:1.1;margin-bottom:.25rem}
+    .h-name-acc{color:var(--gold)}
+    .h-role{font-family:'DM Mono',monospace;font-size:1rem;color:var(--accent-light);margin-bottom:1.5rem}
+    .h-desc{color:rgba(255,255,255,0.68);font-size:1rem;line-height:1.75;margin-bottom:2rem;max-width:480px}
+    .h-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+    .h-tag{background:rgba(37,99,235,0.18);border:1px solid rgba(37,99,235,0.3);color:var(--accent-light);font-size:.79rem;padding:.25rem .75rem;border-radius:99px;font-weight:500}
+    .h-contacts{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem}
+    .ct-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.75);font-size:.82rem;padding:.4rem .9rem;border-radius:8px;text-decoration:none;transition:var(--transition)}
+    .ct-chip:hover{background:rgba(255,255,255,0.15);color:white;transform:translateY(-2px)}
+    .h-cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-pri{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:var(--transition)}
+    .btn-pri:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.4)}
+    .btn-out{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);cursor:pointer;transition:var(--transition)}
+    .btn-out:hover{border-color:rgba(255,255,255,0.5);color:white;transform:translateY(-2px)}
+    .h-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-lg);padding:2rem;animation:fadeRight .9s ease .2s both}
+    @keyframes fadeRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+    .prof-av{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--accent) 0%,var(--navy-light) 100%);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:white;margin:0 auto 1.25rem;border:3px solid rgba(201,168,76,0.5)}
+    .h-card-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;text-align:center;margin-bottom:.25rem}
+    .h-card-sub{color:var(--gray);font-size:.82rem;text-align:center;margin-bottom:1.5rem}
+    .skill-list{display:flex;flex-direction:column;gap:.75rem}
+    .skill-item{display:flex;flex-direction:column;gap:.3rem}
+    .skill-label{display:flex;justify-content:space-between;font-size:.82rem}
+    .skill-name{color:rgba(255,255,255,0.85);font-weight:500}
+    .skill-pct{color:var(--gold-light);font-family:'DM Mono',monospace;font-size:.78rem}
+    .skill-bar{height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+    .s-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent) 0%,var(--gold) 100%);width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+    .h-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.5rem}
+    .stat-box{text-align:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:.75rem .5rem}
+    .stat-num{font-family:'DM Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--gold)}
+    .stat-lbl{font-size:.72rem;color:var(--gray);margin-top:2px}
+    .section{padding:5rem 2rem}
+    .s-light{background:var(--off-white)}
+    .s-white{background:var(--white)}
+    .container{max-width:1100px;margin:0 auto}
+    .sec-header{text-align:center;margin-bottom:3.5rem}
+    .sec-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);color:var(--accent);font-size:.78rem;font-weight:600;padding:.3rem .9rem;border-radius:99px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:.75rem}
+    .sec-title-white{color:white}
+    .sec-desc{color:var(--text-light);font-size:1rem;max-width:600px;margin:0 auto}
+    .sec-divider{width:48px;height:3px;background:var(--gold);border-radius:2px;margin:.75rem auto 0}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.vis{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.2s}
+    .reveal-delay-3{transition-delay:.3s}
+    footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:.82rem}
+    footer strong{color:rgba(255,255,255,0.8)}
+    footer a{color:var(--gold-light);text-decoration:none}
+    @media (max-width:900px){
+      .h-cont{grid-template-columns:1fr}
+      .h-card{display:none}
+    }
+    @media (max-width:640px){
+      .n-links{display:none}
+      .n-ham{display:flex}
+      .n-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--navy);padding:1rem;border-bottom:1px solid rgba(255,255,255,0.1);z-index:998}
+      .role-row{flex-direction:column;align-items:stretch}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LANDING -->
+<div id="landing">
+  <div class="l-bg"><div class="l-grid"></div></div>
+  <div class="l-box">
+    <div class="l-badge"><span class="l-dot"></span>Selamat Datang</div>
+    <h1 class="l-title">Halo! Sebelum masuk,<br/><span>siapakah Anda?</span></h1>
+    <p class="l-sub">Pilih role Anda agar kami bisa menyapa dengan tepat</p>
+    <div class="l-divider"></div>
+    <p class="l-q">Saya mengunjungi portfolio ini sebagai…</p>
+    <div class="role-row">
+      <div class="role-card" onclick="pickRole('HRD Perusahaan',this)"><div class="role-icon">💼</div><div class="role-lbl">HRD Perusahaan</div></div>
+      <div class="role-card" onclick="pickRole('Mahasiswa',this)"><div class="role-icon">🎓</div><div class="role-lbl">Mahasiswa</div></div>
+      <div class="role-card" onclick="pickRole('Kolega / Rekan',this)"><div class="role-icon">🤝</div><div class="role-lbl">Kolega / Rekan</div></div>
+      <div class="role-card" onclick="pickRole('Calon Klien',this)"><div class="role-icon">🌟</div><div class="role-lbl">Calon Klien</div></div>
+    </div>
+    <p class="opt-lbl">✦ Nama Anda (opsional)</p>
+    <div class="name-wrap">
+      <input type="text" id="vname" placeholder="Tulis nama Anda di sini…" maxlength="60"/>
+      <button class="btn-enter" onclick="enter()">
+        Masuk
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#home" class="n-logo"><div class="n-dot"></div>Arkaan H.S.</a>
+  <ul class="n-links" id="nlinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#msg" class="n-cta">Contact Me</a></li>
+  </ul>
+  <div class="n-ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MAIN -->
+<div id="main-content">
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="h-blob1"></div><div class="h-blob2"></div>
+    <div class="h-cont">
+      <div class="h-text">
+        <div class="h-greet"><span>👋</span><span id="hwelcome">Selamat Datang!</span></div>
+        <h1 class="h-name">Arkaan Hilmi<br/><span class="h-name-acc">Suharsoyo</span></h1>
+        <div class="h-role">&gt; Master's Student in Information Systems @ ITS Surabaya</div>
+        <p class="h-desc">
+          A dynamic and results-driven professional with extensive leadership experience and expertise in Business Consulting, ERP Systems (SAP B1), and Business Intelligence. Leading 156 members with 96.49% KPI achievement.
+        </p>
+        <div class="h-tags">
+          <span class="h-tag">💼 Business Consultant</span>
+          <span class="h-tag">📊 ERP Specialist (SAP B1)</span>
+          <span class="h-tag">🤝 Chairperson HMSI ITS</span>
+          <span class="h-tag">🎓 Full Scholarship Fast Track</span>
+        </div>
+        <div class="h-contacts">
+          <a href="mailto:arkaanhilmis23@gmail.com" class="ct-chip">📧 arkaanhilmis23@gmail.com</a>
+          <a href="https://linkedin.com/in/arkaanhilmisuharsoyo" target="_blank" rel="noopener" class="ct-chip">💼 LinkedIn</a>
+          <a href="https://github.com/ArkaanHilmiS" target="_blank" rel="noopener" class="ct-chip">🐙 GitHub</a>
+          <a href="https://instagram.com/arkaanhshry" target="_blank" rel="noopener" class="ct-chip">📱 Instagram</a>
+        </div>
+        <div class="h-cta-row">
+          <a href="https://intip.in/PortoArkaan" target="_blank" class="btn-pri">View Full Portfolio →</a>
+          <a href="#msg" class="btn-out">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="h-card">
+        <div class="prof-av">AH</div>
+        <div class="h-card-name">Arkaan Hilmi Suharsoyo</div>
+        <div class="h-card-sub">Master's Student • ITS Surabaya</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <div class="skill-label"><span class="skill-name">Leadership & Team Building</span><span class="skill-pct">98%</span></div>
+            <div class="skill-bar"><div class="s-fill" data-w="98"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span class="skill-name">Information Systems Analysis</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="s-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span class="skill-name">Business Intelligence</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="s-fill" data-w="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span class="skill-name">Power BI</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="s-fill" data-w="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span class="skill-name">Machine Learning</span><span class="skill-pct">78%</span></div>
+            <div class="skill-bar"><div class="s-fill" data-w="78"></div></div>
+          </div>
+        </div>
+        <div class="h-stats">
+          <div class="stat-box"><div class="stat-num">3.66</div><div class="stat-lbl">GPA</div></div>
+          <div class="stat-box"><div class="stat-num">156</div><div class="stat-lbl">Team Led</div></div>
+          <div class="stat-box"><div class="stat-num">96%</div><div class="stat-lbl">KPI</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="msg" class="section s-white">
+    <div class="container">
+      <div class="sec-header reveal">
+        <div class="sec-tag">✉️ Get in Touch</div>
+        <h2 class="sec-title">Let's Connect</h2>
+        <div class="sec-divider"></div>
+        <p class="sec-desc">Have a job opportunity, project collaboration, or just want to say hello? I'd love to hear from you!</p>
+      </div>
+      <div style="max-width:660px;margin:0 auto;background:var(--off-white);border:1px solid var(--gray-light);border-radius:var(--radius-lg);padding:2.5rem;" class="reveal">
+        <p style="text-align:center;margin-bottom:2rem;color:var(--text);font-size:1rem;">
+          📧 <strong>Email:</strong> <a href="mailto:arkaanhilmis23@gmail.com" style="color:var(--accent);text-decoration:none;">arkaanhilmis23@gmail.com</a><br/>
+          💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arkaanhilmisuharsoyo" target="_blank" style="color:var(--accent);text-decoration:none;">linkedin.com/in/arkaanhilmisuharsoyo</a><br/>
+          🐙 <strong>GitHub:</strong> <a href="https://github.com/ArkaanHilmiS" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/ArkaanHilmiS</a><br/>
+          📱 <strong>Instagram:</strong> <a href="https://instagram.com/arkaanhshry" target="_blank" style="color:var(--accent);text-decoration:none;">@arkaanhshry</a><br/>
+          🌐 <strong>Portfolio:</strong> <a href="https://intip.in/PortoArkaan" target="_blank" style="color:var(--accent);text-decoration:none;">intip.in/PortoArkaan</a>
+        </p>
+        <div style="background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:8px;padding:1.5rem;text-align:center;">
+          <p style="font-size:.9rem;color:var(--navy);margin-bottom:.5rem;"><strong>📊 View Full Portfolio & Download CV</strong></p>
+          <a href="https://intip.in/PortoArkaan" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:white;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;margin-top:.5rem;">
+            View Complete Portfolio →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <strong>Arkaan Hilmi Suharsoyo</strong> · Master's Student in Information Systems, ITS Surabaya</p>
+    <p style="margin-top:.4rem;">Chairperson HMSI ITS • Business Consultant • ERP Specialist</p>
+  </footer>
+
+</div>
+
+<script>
+let selRole='';
+function pickRole(r,el){selRole=r;document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('sel'));el.classList.add('sel')}
+function enter(){
+  const name=document.getElementById('vname').value.trim();
+  const role=selRole||'Pengunjung';
+  let w='';
+  if(name)w=`Halo, ${name}! Selamat datang 👋`;
+  else if(role==='HRD Perusahaan')w='Halo, Bapak/Ibu HRD! Selamat datang 👋';
+  else if(role==='Mahasiswa')w='Halo, sesama Mahasiswa! Selamat datang 👋';
+  else if(role==='Kolega / Rekan')w='Halo, Rekan! Selamat datang 👋';
+  else if(role==='Calon Klien')w='Halo! Terima kasih sudah mampir 👋';
+  else w='Selamat datang di portfolio Arkaan! 👋';
+  document.getElementById('hwelcome').textContent=w;
+  document.getElementById('landing').classList.add('hidden');
+  setTimeout(()=>{
+    document.getElementById('navbar').style.display='flex';
+    document.getElementById('main-content').classList.add('vis');
+    document.getElementById('landing').style.display='none';
+    setTimeout(animateBars,600);
+    initReveal();
+  },800);
+}
+document.getElementById('vname').addEventListener('keydown',e=>{if(e.key==='Enter')enter()});
+function toggleNav(){document.getElementById('nlinks').classList.toggle('open')}
+function animateBars(){document.querySelectorAll('.s-fill').forEach(b=>{b.style.width=b.getAttribute('data-w')+'%'})}
+function initReveal(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+  },{threshold:0.1,rootMargin:'0px 0px -35px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>
