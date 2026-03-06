@@ -862,13 +862,12 @@ body {
   flex-shrink: 0;
   font-family: 'Playfair Display', serif;
   overflow: hidden;
-}
-
-.edu-logo img {
+  .edu-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   transform: scale(0.80);
+}
 }
 
 .edu-period {
