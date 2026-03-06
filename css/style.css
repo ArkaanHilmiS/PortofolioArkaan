@@ -1016,6 +1016,13 @@ body {
   background: rgba(37, 99, 235, 0.1);
 }
 
+.exp-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
 .exp-period {
   font-size: 0.77rem;
   color: var(--text-light);
