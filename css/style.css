@@ -989,7 +989,7 @@ body {
 
 .t-org {
   background: rgba(7, 0, 26, 0.12);
-  color: #d6e3e1;
+  color: rgba(7, 0, 26, 0.12)e3e1;
 }
 
 .t-work {
@@ -1023,7 +1023,7 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  padding: 8px;
+  padding: 1px;
 }
 
 .exp-period {
