@@ -862,6 +862,13 @@ body {
   overflow: hidden;
 }
 
+.edu-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.80);
+}
+
 .edu-period {
   font-size: 0.79rem;
   color: var(--accent);
