@@ -865,10 +865,11 @@ body {
 }
 
 .edu-logo img {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-  object-position: center;
+  width: 68px;
+  height: 68px;
+  max-width: none;
+  object-fit: cover;
+  display: block;
 }
 
 .edu-period {
