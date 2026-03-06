@@ -988,8 +988,8 @@ body {
 }
 
 .t-org {
-  background: rgba(7, 0, 26, 0.12);
-  color: #07001a;
+  background: #011848;
+  color: #dcd5ed;
 }
 
 .t-work {
@@ -1012,7 +1012,7 @@ body {
 }
 
 .i-org {
-  background: rgba(7, 0, 26, 0.12);
+  background: #011848;
 }
 
 .i-work {
