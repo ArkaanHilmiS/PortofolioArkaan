@@ -1217,6 +1217,61 @@ body {
 .train-org {
   font-size: 0.78rem;
   color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+/* TAMBAHAN: Styling untuk deskripsi detail */
+.train-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-light);
+}
+
+.train-desc strong {
+  color: var(--navy-mid);
+  font-weight: 600;
+}
+
+.train-desc br + br {
+  display: block;
+  content: "";
+  margin-top: 0.4rem;
+}
+
+/* Google cert card (first card) spans 2 columns */
+.train-card:first-child {
+  grid-column: span 2;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 900px) {
+  .train-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .train-card:first-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .train-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .train-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+  }
+  
+  .train-desc {
+    font-size: 0.82rem;
+  }
 }
 
 /* ==================== SKILLS SECTION ==================== */
