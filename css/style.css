@@ -656,6 +656,7 @@ body {
   color: white;
   margin: 0 auto 1.2rem;
   border: 3px solid rgba(201, 168, 76, 0.5);
+  overflow: hidden;
 }
 
 .p-avatar img {
